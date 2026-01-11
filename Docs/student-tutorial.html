@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial: Connect Figma to Claude AI | For Complete Beginners</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 20px 20px 0 0;
+        }
+        header h1 { font-size: 2.5em; margin-bottom: 15px; }
+        .content { padding: 40px; }
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+        h3 { color: #764ba2; margin: 25px 0 15px 0; }
+        .step-box {
+            background: #e3f2fd;
+            border-left: 5px solid #2196f3;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .success-box {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .code-block {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .os-tabs {
+            display: flex;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .os-tab {
+            padding: 15px 30px;
+            background: #e9ecef;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .os-tab.active { background: #667eea; color: white; }
+        .os-content { display: none; padding: 20px; background: #f8f9fa; border-radius: 10px; margin: 10px 0; }
+        .os-content.active { display: block; }
+        ol, ul { margin-left: 30px; margin-bottom: 15px; }
+        li { margin-bottom: 10px; }
+        code {
+            background: #f4f4f4;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #e83e8c;
+        }
+        a { color: #667eea; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Connect Figma to Claude AI</h1>
+            <p>Complete Beginner's Guide - No Coding Experience Required</p>
+            <p style="margin-top:15px;">⏱️ Time: ~90 minutes</p>
+        </header>
+        
+        <div class="content">
+            <!-- FIGMA TEMPLATE SETUP -->
+            <section>
+                <h2>📋 Step 0: Get Your Figma Template</h2>
+                
+                <div class="warning-box">
+                    <h3>⚠️ Do This FIRST - Before Installing Anything!</h3>
+                    <p>You need a Figma file to work with. Your instructor will either provide a template or guide you to create your own.</p>
+                </div>
+                
+                <div class="step-box">
+                    <h3>What You Need in Your Figma File</h3>
+                    <p>Your Figma file should contain structured content that you want Claude to read. Examples include:</p>
+                    <ul>
+                        <li><strong>Marketing personas:</strong> Customer profiles with demographics, pain points, goals</li>
+                        <li><strong>Content strategy:</strong> Brand messaging, tone of voice, key messages</li>
+                        <li><strong>Product information:</strong> Features, benefits, specifications</li>
+                        <li><strong>Campaign briefs:</strong> Objectives, target audience, deliverables</li>
+                        <li><strong>Customer journeys:</strong> Stages, touchpoints, content needs</li>
+                    </ul>
+                </div>
+                
+                <h3>Option A: Use Instructor's Template</h3>
+                
+                <div class="step-box">
+                    <h4>If your instructor provides a template link:</h4>
+                    <ol>
+                        <li>Click on the Figma link shared by your instructor</li>
+                        <li>Sign in to Figma (create free account if needed: <a href="https://figma.com" target="_blank">figma.com</a>)</li>
+                        <li>Click the <strong>dropdown arrow</strong> next to the file name</li>
+                        <li>Select <strong>"Duplicate to your drafts"</strong></li>
+                        <li>Now you have your own editable copy!</li>
+                    </ol>
+                </div>
+                
+                <h3>Option B: Create Your Own</h3>
+                
+                <div class="step-box">
+                    <h4>If starting from scratch:</h4>
+                    <ol>
+                        <li>Go to <a href="https://figma.com" target="_blank">figma.com</a> and sign in</li>
+                        <li>Click <strong>"New design file"</strong></li>
+                        <li>Create <strong>frames</strong> (press F or click Frame tool)</li>
+                        <li>Add <strong>text layers</strong> (press T or click Text tool)</li>
+                        <li>Structure your content in sections</li>
+                        <li>Give each frame a descriptive name</li>
+                    </ol>
+                    
+                    <p><strong>Pro tip:</strong> Use frames as "sections" and text layers for content. The MCP server will extract all text from your frames.</p>
+                </div>
+                
+                <div class="step-box">
+                    <h4>Get Your File ID (Critical!)</h4>
+                    <p>You'll need this File ID for Step 3 of the setup.</p>
+                    <ol>
+                        <li>Open your Figma file</li>
+                        <li>Look at the <strong>URL in your browser</strong></li>
+                        <li>The URL looks like: <code>https://www.figma.com/design/<strong>ABC123XYZ456</strong>/Your-File-Name</code></li>
+                        <li>The File ID is the part between <code>/design/</code> and the next <code>/</code></li>
+                        <li><strong>Copy this ID</strong> and save it in a text file - you'll need it later!</li>
+                    </ol>
+                    
+                    <p><strong>Example:</strong></p>
+                    <div class="code-block">URL: https://www.figma.com/design/ABC123XYZ456789/My-Marketing-Strategy
+
+File ID: ABC123XYZ456789</div>
+                </div>
+                
+                <div class="success-box">
+                    <h3>🎉 Figma File Ready!</h3>
+                    <p>You now have:</p>
+                    <ul>
+                        <li>✅ A Figma file with structured content</li>
+                        <li>✅ File ID saved for later setup</li>
+                        <li>✅ Understanding of how it will be used</li>
+                    </ul>
+                    <p><strong>Now continue with the technical setup below to connect it to Claude AI!</strong></p>
+                </div>
+            </section>
+            
+            <!-- INTRODUCTION -->
+            <section>
+                <h2>📖 What You'll Build</h2>
+                <div class="step-box">
+                    <p><strong>By the end of this tutorial, you will:</strong></p>
+                    <ul>
+                        <li>✅ Connect your Figma content to Claude AI automatically</li>
+                        <li>✅ Ask Claude to read and analyze your Figma files</li>
+                        <li>✅ Generate marketing content from your Figma structures</li>
+                        <li>✅ Understand how AI automation works</li>
+                    </ul>
+                </div>
+                
+                <h3>How It Works (Simple Version)</h3>
+                <p><strong>Think of it like this:</strong></p>
+                <ol>
+                    <li>You create structured content in Figma (personas, strategies, etc.)</li>
+                    <li>You build a small "bridge" (the MCP server) on your computer</li>
+                    <li>Claude uses this bridge to read your Figma content automatically</li>
+                    <li>You ask Claude to create deliverables based on that content</li>
+                </ol>
+                
+                <div class="warning-box">
+                    <h4>⚠️ Before You Start</h4>
+                    <p><strong>Prerequisites:</strong></p>
+                    <ul>
+                        <li>A computer (Windows 10/11 or macOS 10.15+)</li>
+                        <li>Administrator access (ability to install software)</li>
+                        <li>A Figma account (free) - <a href="https://figma.com">Sign up here</a></li>
+                        <li>A Claude account (free) - <a href="https://claude.ai">Sign up here</a></li>
+                        <li>Your Figma file with content (from Step 0 above)</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- STEP 1 -->
+            <section>
+                <h2>Step 1: Install Python (~15 min)</h2>
+                
+                <div class="step-box">
+                    <h3>What is Python?</h3>
+                    <p>Python is a programming language. We need it to write instructions for the computer to connect to Figma.</p>
+                    <p><strong>Don't worry</strong> - you don't need to learn Python. We'll give you the code to copy/paste.</p>
+                </div>
+                
+                <div class="os-tabs">
+                    <div class="os-tab active" onclick="showOS('win')">🪟 Windows</div>
+                    <div class="os-tab" onclick="showOS('mac')">🍎 macOS</div>
+                </div>
+                
+                <div id="win" class="os-content active">
+                    <h4>Windows Installation</h4>
+                    <ol>
+                        <li>Click <strong>Start menu</strong> → Type "Microsoft Store" → Open it</li>
+                        <li>Search for <strong>"Python 3.12"</strong></li>
+                        <li>Click <strong>"Get"</strong> or <strong>"Install"</strong></li>
+                        <li>Wait for installation (2-5 minutes)</li>
+                    </ol>
+                    
+                    <h4>Verify Installation</h4>
+                    <ol>
+                        <li>Click <strong>Start</strong> → Type "PowerShell" → Open it</li>
+                        <li>A blue/black window opens - this is the "Terminal"</li>
+                        <li>Type this and press <strong>Enter</strong>:</li>
+                    </ol>
+                    <div class="code-block">python --version</div>
+                    <p>You should see: <code>Python 3.12.X</code></p>
+                    
+                    <div class="success-box">
+                        ✅ If you see a version number, Python is installed!
+                    </div>
+                    
+                    <p><strong>Keep PowerShell open</strong> - we'll use it next!</p>
+                </div>
+                
+                <div id="mac" class="os-content">
+                    <h4>macOS Installation</h4>
+                    <ol>
+                        <li>Press <code>Cmd + Space</code> → Type "Terminal" → Press Enter</li>
+                        <li>Check if Python is installed:</li>
+                    </ol>
+                    <div class="code-block">python3 --version</div>
+                    
+                    <p><strong>If you see Python 3.9+:</strong> Great! Skip to Step 2</p>
+                    <p><strong>If not:</strong> Install via Homebrew:</p>
+                    
+                    <ol>
+                        <li>Install Homebrew (copy and paste this entire line):</li>
+                    </ol>
+                    <div class="code-block">/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</div>
+                    
+                    <ol start="2">
+                        <li>Wait ~5 minutes, then install Python:</li>
+                    </ol>
+                    <div class="code-block">brew install <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="62121b160a0d0c22514c5350">[email&#160;protected]</a></div>
+                    
+                    <div class="success-box">
+                        ✅ Python is now installed!
+                    </div>
+                    
+                    <p><strong>Keep Terminal open</strong> - we'll use it next!</p>
+                </div>
+            </section>
+            
+            <!-- STEP 2 -->
+            <section>
+                <h2>Step 2: Create Your Project (~10 min)</h2>
+                
+                <div class="step-box">
+                    <h3>What we're doing</h3>
+                    <p>We're creating a dedicated folder for our project and setting up a "virtual environment" - an isolated workspace where we'll install everything we need.</p>
+                </div>
+                
+                <div class="os-tabs">
+                    <div class="os-tab active" onclick="showOS('win2')">🪟 Windows</div>
+                    <div class="os-tab" onclick="showOS('mac2')">🍎 macOS</div>
+                </div>
+                
+                <div id="win2" class="os-content active">
+                    <h4>Windows Setup</h4>
+                    <p>In PowerShell, type these commands one by one:</p>
+                    
+                    <div class="code-block">cd ~\Documents</div>
+                    <p><em>Go to Documents folder</em></p>
+                    
+                    <div class="code-block">mkdir FigmaMCPServer</div>
+                    <p><em>Create project folder</em></p>
+                    
+                    <div class="code-block">cd FigmaMCPServer</div>
+                    <p><em>Enter that folder</em></p>
+                    
+                    <div class="code-block">python -m venv venv</div>
+                    <p><em>Create virtual environment (wait ~30 sec)</em></p>
+                    
+                    <div class="code-block">.\venv\Scripts\Activate</div>
+                    <p><em>Activate virtual environment</em></p>
+                    
+                    <div class="success-box">
+                        ✅ You should see <code>(venv)</code> at the start of your line!
+                    </div>
+                    
+                    <h4>Install Libraries</h4>
+                    <p>Now install the code libraries we need:</p>
+                    <div class="code-block">pip install --upgrade pip
+pip install mcp requests python-dotenv</div>
+                    
+                    <p>Wait for installation to complete (~1 minute).</p>
+                </div>
+                
+                <div id="mac2" class="os-content">
+                    <h4>macOS Setup</h4>
+                    <p>In Terminal, type these commands one by one:</p>
+                    
+                    <div class="code-block">cd ~/Documents
+mkdir FigmaMCPServer
+cd FigmaMCPServer
+python3 -m venv venv
+source venv/bin/activate</div>
+                    
+                    <div class="success-box">
+                        ✅ You should see <code>(venv)</code> at the start of your line!
+                    </div>
+                    
+                    <h4>Install Libraries</h4>
+                    <div class="code-block">pip3 install --upgrade pip
+pip3 install mcp requests python-dotenv</div>
+                    
+                    <p>Wait for installation to complete (~1 minute).</p>
+                </div>
+            </section>
+            
+            <!-- STEP 3 -->
+            <section>
+                <h2>Step 3: Get Figma Access Token (~5 min)</h2>
+                
+                <div class="step-box">
+                    <p>We need a special password (token) to access Figma programmatically.</p>
+                </div>
+                
+                <h3>Create Your Token</h3>
+                <ol>
+                    <li>Go to <a href="https://figma.com" target="_blank">figma.com</a> and log in</li>
+                    <li>Click your <strong>profile picture</strong> (top-right) → <strong>Settings</strong></li>
+                    <li>Scroll down to <strong>"Personal access tokens"</strong> section</li>
+                    <li>Click <strong>"Create a new personal access token"</strong></li>
+                    <li>Give it a name: <code>MCP Server</code></li>
+                    <li>Check these permissions:
+                        <ul>
+                            <li>✅ File content: Read</li>
+                            <li>✅ File metadata: Read</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>"Generate token"</strong></li>
+                    <li><strong>COPY THE TOKEN</strong> immediately - you'll only see it once!</li>
+                    <li>Paste it in Notepad/TextEdit and keep it open</li>
+                </ol>
+                
+                <div class="warning-box">
+                    ⚠️ <strong>Never share this token publicly!</strong> It's like a password to your Figma account.
+                </div>
+                
+                <h3>You Should Have Two Things Now</h3>
+                <div class="step-box">
+                    <ol>
+                        <li><strong>Figma Token:</strong> Starts with <code>figd_</code> (from above)</li>
+                        <li><strong>File ID:</strong> From Step 0 (the alphanumeric code from your Figma URL)</li>
+                    </ol>
+                    <p><strong>Keep both saved in a text file - you'll need them in the next step!</strong></p>
+                </div>
+            </section>
+            
+            <!-- STEP 4 -->
+            <section>
+                <h2>Step 4: Create Your Server Files (~20 min)</h2>
+                
+                <div class="step-box">
+                    <p>We'll create two files:</p>
+                    <ol>
+                        <li><code>.env</code> - Stores your secrets (token & file ID)</li>
+                        <li><code>server.py</code> - The code that connects to Figma</li>
+                    </ol>
+                </div>
+                
+                <h3>Create .env File</h3>
+                
+                <div class="os-tabs">
+                    <div class="os-tab active" onclick="showOS('win3')">🪟 Windows</div>
+                    <div class="os-tab" onclick="showOS('mac3')">🍎 macOS</div>
+                </div>
+                
+                <div id="win3" class="os-content active">
+                    <p>In PowerShell (make sure you're still in FigmaMCPServer folder and <code>(venv)</code> is showing):</p>
+                    <div class="code-block">notepad .env</div>
+                    <p>Click "Yes" to create the file. Then paste this, replacing with YOUR token and file ID:</p>
+                    <div class="code-block">FIGMA_TOKEN=your_token_here
+FIGMA_FILE_ID=your_file_id_here</div>
+                    <p><strong>Example with real values:</strong></p>
+                    <div class="code-block">FIGMA_TOKEN=figd_abc123xyz789_your_actual_token_here
+FIGMA_FILE_ID=ABC123XYZ456789</div>
+                    <p>Save (<code>Ctrl+S</code>) and close Notepad.</p>
+                </div>
+                
+                <div id="mac3" class="os-content">
+                    <p>In Terminal (make sure you're still in FigmaMCPServer folder and <code>(venv)</code> is showing):</p>
+                    <div class="code-block">nano .env</div>
+                    <p>Paste this, replacing with YOUR token and file ID:</p>
+                    <div class="code-block">FIGMA_TOKEN=your_token_here
+FIGMA_FILE_ID=your_file_id_here</div>
+                    <p><strong>Example with real values:</strong></p>
+                    <div class="code-block">FIGMA_TOKEN=figd_abc123xyz789_your_actual_token_here
+FIGMA_FILE_ID=ABC123XYZ456789</div>
+                    <p>Press <code>Ctrl+O</code> → Enter (to save) → <code>Ctrl+X</code> (to exit)</p>
+                </div>
+                
+                <h3>Create server.py File</h3>
+                
+                <div class="step-box">
+                    <p><strong>Download the server code from your instructor OR the GitHub repository.</strong></p>
+                    <p>Save the <code>server.py</code> file directly in your <code>FigmaMCPServer</code> folder.</p>
+                    
+                    <p><strong>File location should be:</strong></p>
+                    <ul>
+                        <li>Windows: <code>C:\Users\YourName\Documents\FigmaMCPServer\server.py</code></li>
+                        <li>Mac: <code>/Users/YourName/Documents/FigmaMCPServer/server.py</code></li>
+                    </ul>
+                </div>
+                
+                <h3>Test the Server</h3>
+                <p>Back in PowerShell/Terminal (make sure <code>(venv)</code> is showing):</p>
+                
+                <div class="os-tabs">
+                    <div class="os-tab active" onclick="showOS('win5')">🪟 Windows</div>
+                    <div class="os-tab" onclick="showOS('mac5')">🍎 macOS</div>
+                </div>
+                
+                <div id="win5" class="os-content active">
+                    <div class="code-block">python server.py</div>
+                </div>
+                
+                <div id="mac5" class="os-content">
+                    <div class="code-block">python3 server.py</div>
+                </div>
+                
+                <div class="success-box">
+                    ✅ If the cursor just blinks (no errors), it works! Press <code>Ctrl+C</code> to stop it.
+                </div>
+                
+                <div class="warning-box">
+                    <h4>If you see errors:</h4>
+                    <ul>
+                        <li><strong>"FIGMA_TOKEN not found"</strong> - Check your .env file has the correct format</li>
+                        <li><strong>"API Error 403"</strong> - Your token is invalid, create a new one</li>
+                        <li><strong>"ModuleNotFoundError"</strong> - Make sure venv is activated and libraries installed</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- STEP 5 -->
+            <section>
+                <h2>Step 5: Install Claude Desktop (~15 min)</h2>
+                
+                <ol>
+                    <li>Go to <a href="https://claude.ai/download" target="_blank">claude.ai/download</a></li>
+                    <li>Download Claude Desktop for your operating system</li>
+                    <li>Install it (follow the installer prompts)</li>
+                    <li>Launch Claude Desktop and sign in with your Claude account</li>
+                </ol>
+                
+                <h3>Configure Claude Desktop</h3>
+                
+                <div class="step-box">
+                    <p>We need to tell Claude Desktop where to find your MCP server.</p>
+                </div>
+                
+                <div class="os-tabs">
+                    <div class="os-tab active" onclick="showOS('win6')">🪟 Windows</div>
+                    <div class="os-tab" onclick="showOS('mac6')">🍎 macOS</div>
+                </div>
+                
+                <div id="win6" class="os-content active">
+                    <p><strong>1. Find your Python path:</strong></p>
+                    <p>In PowerShell (with venv activated):</p>
+                    <div class="code-block">where.exe python</div>
+                    <p>Copy the FIRST line shown (the one with "venv" in it). Example:</p>
+                    <div class="code-block">C:\Users\YourName\Documents\FigmaMCPServer\venv\Scripts\python.exe</div>
+                    
+                    <p><strong>2. Edit config file:</strong></p>
+                    <div class="code-block">notepad %APPDATA%\Claude\claude_desktop_config.json</div>
+                    
+                    <p><strong>3. Paste this template (replace the paths with YOUR paths):</strong></p>
+                    <div class="code-block">{
+  "mcpServers": {
+    "figma-text-extractor": {
+      "command": "C:\\Users\\YourName\\Documents\\FigmaMCPServer\\venv\\Scripts\\python.exe",
+      "args": ["C:\\Users\\YourName\\Documents\\FigmaMCPServer\\server.py"]
+    }
+  }
+}</div>
+                    
+                    <div class="warning-box">
+                        ⚠️ <strong>Critical for Windows:</strong>
+                        <ul>
+                            <li>Use double backslashes <code>\\</code> NOT single <code>\</code></li>
+                            <li>Both paths must point to YOUR actual files</li>
+                            <li>The first path ends with <code>python.exe</code></li>
+                            <li>The second path ends with <code>server.py</code></li>
+                        </ul>
+                    </div>
+                    
+                    <p>Save (<code>Ctrl+S</code>) and close Notepad.</p>
+                </div>
+                
+                <div id="mac6" class="os-content">
+                    <p><strong>1. Find your Python path:</strong></p>
+                    <p>In Terminal (with venv activated):</p>
+                    <div class="code-block">which python3</div>
+                    <p>Copy the path shown. Example:</p>
+                    <div class="code-block">/Users/YourName/Documents/FigmaMCPServer/venv/bin/python3</div>
+                    
+                    <p><strong>2. Create/edit config file:</strong></p>
+                    <div class="code-block">mkdir -p ~/Library/Application\ Support/Claude
+nano ~/Library/Application\ Support/Claude/claude_desktop_config.json</div>
+                    
+                    <p><strong>3. Paste this (replace paths with YOUR paths):</strong></p>
+                    <div class="code-block">{
+  "mcpServers": {
+    "figma-text-extractor": {
+      "command": "/Users/YourName/Documents/FigmaMCPServer/venv/bin/python3",
+      "args": ["/Users/YourName/Documents/FigmaMCPServer/server.py"]
+    }
+  }
+}</div>
+                    
+                    <p>Save: <code>Ctrl+O</code> → Enter → <code>Ctrl+X</code></p>
+                </div>
+                
+                <p><strong>4. Restart Claude Desktop COMPLETELY:</strong></p>
+                <ul>
+                    <li>Quit Claude Desktop (don't just close the window)</li>
+                    <li>Reopen it fresh</li>
+                    <li>This is necessary for the config to load</li>
+                </ul>
+            </section>
+            
+            <!-- STEP 6 -->
+            <section>
+                <h2>Step 6: Test It! (~10 min)</h2>
+                
+                <div class="step-box">
+                    <h3>Check Server Status</h3>
+                    <p>In Claude Desktop:</p>
+                    <ol>
+                        <li>Click <strong>☰ menu</strong> (top-left) → <strong>Settings</strong></li>
+                        <li>Go to <strong>Developer</strong> tab</li>
+                        <li>Look for "Local MCP Servers" section</li>
+                        <li>You should see: <code>figma-text-extractor</code> with status <strong style="color: green;">● running</strong></li>
+                    </ol>
+                    
+                    <div class="warning-box">
+                        <p><strong>If you see "error" or "failed":</strong></p>
+                        <ul>
+                            <li>Check your config file for typos</li>
+                            <li>Make sure paths are correct</li>
+                            <li>Windows: Did you use <code>\\</code> double backslashes?</li>
+                            <li>Restart Claude Desktop again</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Ask Claude to Use It</h3>
+                <p>In Claude Desktop chat, type:</p>
+                <div class="code-block">What MCP tools do you have available?</div>
+                
+                <p>Claude should mention "Figma Text Extractor" or similar!</p>
+                
+                <p>Now try the real test:</p>
+                <div class="code-block">Extract all content from my Figma file</div>
+                
+                <div class="success-box">
+                    <h3>🎉 Success!</h3>
+                    <p>If Claude shows you the content from your Figma file, <strong>YOU DID IT!</strong></p>
+                    <p>You've successfully:</p>
+                    <ul>
+                        <li>✅ Built your first MCP server</li>
+                        <li>✅ Connected Figma to Claude AI</li>
+                        <li>✅ Automated content extraction</li>
+                        <li>✅ Learned about API integration</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- TROUBLESHOOTING -->
+            <section>
+                <h2>🆘 Common Problems & Solutions</h2>
+                
+                <div class="warning-box">
+                    <h4>Problem: "Could not connect to MCP server"</h4>
+                    <p><strong>Solutions:</strong></p>
+                    <ul>
+                        <li>✅ Check your paths in config file - no typos!</li>
+                        <li>✅ Windows: Use double backslashes <code>\\</code> not single <code>\</code></li>
+                        <li>✅ Make sure <code>(venv)</code> was active when you installed libraries</li>
+                        <li>✅ Restart Claude Desktop COMPLETELY (Quit, not just close)</li>
+                        <li>✅ Try opening Claude Desktop from scratch</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>Problem: "Figma API Error: 403"</h4>
+                    <p>Your token is invalid or expired.</p>
+                    <p><strong>Solution:</strong></p>
+                    <ol>
+                        <li>Go to Figma and create a new token</li>
+                        <li>Update your <code>.env</code> file with the new token</li>
+                        <li>Restart Claude Desktop</li>
+                    </ol>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>Problem: "ModuleNotFoundError: No module named 'mcp'"</h4>
+                    <p>Libraries weren't installed in the virtual environment.</p>
+                    <p><strong>Solution:</strong></p>
+                    <div class="code-block"># Make sure you're in the project folder
+cd ~/Documents/FigmaMCPServer  # Mac
+cd ~\Documents\FigmaMCPServer  # Windows
+
+# Activate venv
+source venv/bin/activate  # Mac
+.\venv\Scripts\Activate  # Windows
+
+# Reinstall
+pip install mcp requests python-dotenv</div>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>Problem: Virtual environment won't activate (Windows)</h4>
+                    <p>Execution policy is blocking scripts.</p>
+                    <p><strong>Solution:</strong></p>
+                    <ol>
+                        <li>Open PowerShell as <strong>Administrator</strong> (right-click → Run as administrator)</li>
+                        <li>Run: <code>Set-ExecutionPolicy RemoteSigned</code></li>
+                        <li>Type <code>Y</code> and press Enter</li>
+                        <li>Close admin PowerShell and try activating venv again in regular PowerShell</li>
+                    </ol>
+                </div>
+            </section>
+            
+            <!-- NEXT STEPS -->
+            <section>
+                <h2>🚀 What's Next?</h2>
+                
+                <div class="success-box">
+                    <h3>You Can Now:</h3>
+                    <ul>
+                        <li>📅 Ask Claude to create content calendars from your Figma personas</li>
+                        <li>✉️ Generate email campaigns based on your content strategy</li>
+                        <li>🌐 Create website copy from your Figma wireframes</li>
+                        <li>📊 Analyze and improve your marketing frameworks</li>
+                        <li>🎨 Generate creative briefs from campaign structures</li>
+                    </ul>
+                </div>
+                
+                <h3>Important Notes</h3>
+                <div class="step-box">
+                    <h4>Daily Usage (This is Important!)</h4>
+                    <p><strong>You DON'T need to run anything in PowerShell/Terminal every day!</strong></p>
+                    <p><strong>Daily workflow is just:</strong></p>
+                    <ol>
+                        <li>Open Claude Desktop</li>
+                        <li>The server starts automatically in the background</li>
+                        <li>Start asking Claude to read your Figma files</li>
+                        <li>That's it!</li>
+                    </ol>
+                    
+                    <p><strong>The PowerShell/Terminal steps were ONLY for the one-time setup!</strong></p>
+                </div>
+                
+                <h3>Try These Prompts</h3>
+                <div class="step-box">
+                    <p><strong>Content Generation:</strong></p>
+                    <div class="code-block">Based on the persona in section_1 of my Figma file, create a 2-week Instagram content calendar with captions and hashtags</div>
+                    
+                    <p><strong>Email Sequences:</strong></p>
+                    <div class="code-block">Using the customer journey in my Figma file, write a 3-email welcome sequence with subject lines</div>
+                    
+                    <p><strong>Strategy Analysis:</strong></p>
+                    <div class="code-block">Review the messaging framework in my Figma file and suggest improvements for clarity and emotional impact</div>
+                    
+                    <p><strong>Creative Briefs:</strong></p>
+                    <div class="code-block">Create a detailed creative brief for a designer based on the campaign structure in section_3</div>
+                </div>
+                
+                <h3>Explore More</h3>
+                <p>Check out the <code>examples/prompts.md</code> file in the repository for 30+ more prompt ideas!</p>
+            </section>
+        </div>
+        
+        <footer style="background: #2d3748; color: white; padding: 40px; text-align: center; border-radius: 0 0 20px 20px;">
+            <h3>🎉 Congratulations!</h3>
+            <p>You've successfully connected Figma to Claude AI</p>
+            <p style="margin-top: 20px; opacity: 0.8;">Educational Material by Prof. Axel TASCIYAN</p>
+            <p style="opacity: 0.6; margin-top: 10px;">For teaching purposes only | Non-commercial use</p>
+        </footer>
+    </div>
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        function showOS(os) {
+            // Reset all tabs and content
+            document.querySelectorAll('.os-tab').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.os-content').forEach(content => content.classList.remove('active'));
+            
+            // Activate selected OS
+            if (os.startsWith('win')) {
+                document.querySelectorAll('.os-tab').forEach(tab => {
+                    if (tab.textContent.includes('Windows')) tab.classList.add('active');
+                });
+                document.querySelectorAll('[id^="win"]').forEach(c => c.classList.add('active'));
+            } else {
+                document.querySelectorAll('.os-tab').forEach(tab => {
+                    if (tab.textConten
