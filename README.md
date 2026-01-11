@@ -331,7 +331,7 @@ For commercial licensing: Contact via GitHub (@SoG-Attila)
 
 **Created by:** Axel TASCIYAN  
 **Teaching at:** HEC Paris MBA & EMLYON Business School  
-**Year:** 2024
+**Year:** 2026
 
 **Built with:**
 - [MCP Protocol](https://modelcontextprotocol.io) by Anthropic
