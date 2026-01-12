@@ -729,7 +729,7 @@ pip install mcp requests python-dotenv</div>
         </footer>
     </div>
     
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         function showOS(os) {
             // Reset all tabs and content
             document.querySelectorAll('.os-tab').forEach(tab => tab.classList.remove('active'));
@@ -743,4 +743,11 @@ pip install mcp requests python-dotenv</div>
                 document.querySelectorAll('[id^="win"]').forEach(c => c.classList.add('active'));
             } else {
                 document.querySelectorAll('.os-tab').forEach(tab => {
-                    if (tab.textConten
+                    if (tab.textContent.includes('macOS')) tab.classList.add('active');
+                });
+                document.querySelectorAll('[id^="mac"]').forEach(c => c.classList.add('active'));
+            }
+        }
+    </script>
+</body>
+</html>
