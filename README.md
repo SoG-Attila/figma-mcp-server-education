@@ -68,7 +68,9 @@ After completing this workshop, students can automate:
 - **Prerequisites:** Computers with admin rights, Figma and Claude accounts
 
 ### Teaching Materials Included
-1. **Student Tutorial** (`docs/student-tutorial-figma-mcp.html`) - 90-minute step-by-step guide
+1. **Student Tutorials** - 90-minute step-by-step guides
+   - `docs/student-tutorial-windows.html` - For Windows users
+   - `docs/student-tutorial-mac.html` - For macOS users
 2. **Teaching Guide** (`TEACHING-GUIDE.md`) - Lesson plan, tips, common issues
 3. **Example Prompts** (`examples/prompts.md`) - 30+ ready-to-use Claude prompts
 4. **Server Code** (`server.py`) - Well-commented for learning
@@ -102,7 +104,9 @@ See **[TEACHING-GUIDE.md](TEACHING-GUIDE.md)** for detailed instructor notes.
 
 ### Quick Start
 1. **Download this repository** (Code → Download ZIP)
-2. **Open the tutorial:** `docs/student-tutorial-figma-mcp.html` in your browser
+2. **Choose your tutorial:**
+   - Windows users: Open `docs/student-tutorial-windows.html` in your browser
+   - Mac users: Open `docs/student-tutorial-mac.html` in your browser
 3. **Follow every step** (~90 minutes)
 4. **Start creating!** Use Claude to generate content from your Figma files
 
@@ -134,7 +138,9 @@ figma-mcp-server/
 ├── .gitignore                   ← Git ignore rules
 │
 ├── docs/
-│   └── student-tutorial-figma-mcp.html  ← Main tutorial
+│   ├── README.md                       ← Tutorial guide
+│   ├── student-tutorial-windows.html  ← Windows tutorial
+│   └── student-tutorial-mac.html      ← macOS tutorial
 │
 ├── examples/
 │   └── prompts.md               ← Example Claude prompts
@@ -163,7 +169,7 @@ figma-mcp-server/
 
 ### 1. Review the Materials
 - Read `TEACHING-GUIDE.md` for lesson plan and tips
-- Open `docs/student-tutorial-figma-mcp.html` to see student experience
+- Open `docs/student-tutorial-windows.html` and `docs/student-tutorial-mac.html` to see student experience
 - Review `server.py` to understand what students build
 
 ### 2. Prepare Your Setup
@@ -331,7 +337,7 @@ For commercial licensing: Contact via GitHub (@SoG-Attila)
 
 **Created by:** Axel TASCIYAN  
 **Teaching at:** HEC Paris MBA & EMLYON Business School  
-**Year:** 2026
+**Year:** 2024
 
 **Built with:**
 - [MCP Protocol](https://modelcontextprotocol.io) by Anthropic
